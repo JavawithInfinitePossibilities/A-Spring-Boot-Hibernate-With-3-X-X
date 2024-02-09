@@ -4,6 +4,7 @@ import com.sid.tutorials.spring.boot3.hibernate.app.bean.Car;
 import com.sid.tutorials.spring.boot3.hibernate.app.bean.Person;
 import com.sid.tutorials.spring.boot3.hibernate.app.entity.CarEntity;
 import com.sid.tutorials.spring.boot3.hibernate.app.entity.PersonEntity;
+import com.sid.tutorials.spring.boot3.hibernate.app.entity.dto.PersonDto;
 import com.sid.tutorials.spring.boot3.hibernate.app.mockdata.MockDataPrep;
 import com.sid.tutorials.spring.boot3.hibernate.app.services.CarServices;
 import com.sid.tutorials.spring.boot3.hibernate.app.services.PersonServices;
@@ -12,6 +13,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Rollback;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.io.IOException;
 import java.util.List;
@@ -123,21 +126,13 @@ class Section09JPQLTest {
 
     @Disabled
     @Test
-    void getPersonDetails() {
-        List<PersonEntity> allPersonDetails = personServices.getAllPersonDetails();
-        allPersonDetails.stream().forEach(person -> {
-            System.out.println(person);
-        });
-    }
-
-    @Disabled
-    @Test
     void updateCarDetails() {
         CarEntity carEntity = carServices.getCarDetailsById(156);
         carEntity.setColor("Green");
         carServices.createCarDetails(carEntity);
     }
 
+    @Disabled
     @Test
     void getCarDetails() {
         List<CarEntity> allCarDetails = carServices.getCarDetailsByMakeName("Ford");
@@ -145,5 +140,39 @@ class Section09JPQLTest {
             System.out.println(person);
         });
         System.out.println("Number of record returned : " + allCarDetails.size());
+    }
+
+    /*
+     *Section-09-JPQL test
+     * */
+    @Test
+    void getPersonDetails() {
+        List<PersonEntity> allPersonDetails = personServices.getAllPersonDetails();
+        allPersonDetails.stream().forEach(person -> {
+            System.out.println(person);
+        });
+    }
+
+    @Test
+    void getPersonFirstAndLastNameDetails() {
+        List<Object[]> allPersonDetails = personServices.getAllPersonFirstNameAndLastNameDetails();
+        allPersonDetails.stream().forEach(person -> {
+            System.out.println(person[0]+"  "+person[1]);
+        });
+    }
+
+    @Test
+    void getPersonFirstAndLastNameDetailsByGender() {
+        List<PersonDto> allPersonDetails = personServices.getAllPersonFirstNameAndLastNameDetailsByGender("Male");
+        allPersonDetails.stream().forEach(person -> {
+            System.out.println(person);
+        });
+    }
+
+    @Transactional
+    @Rollback(value = false)
+    @Test
+    void deletePersonDetails() {
+        personServices.deletePersondetails(234);
     }
 }

@@ -1,6 +1,7 @@
 package com.sid.tutorials.spring.boot3.hibernate.app.services;
 
 import com.sid.tutorials.spring.boot3.hibernate.app.entity.CarEntity;
+import com.sid.tutorials.spring.boot3.hibernate.app.entity.dto.CarDto;
 import com.sid.tutorials.spring.boot3.hibernate.app.repository.CarRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
@@ -36,5 +37,9 @@ public class CarServices {
 
     public List<CarEntity> getCarDetailsByMakeName(String make) {
         return carRepository.findByMake(make);
+    }
+
+    public List<CarDto> getAllCarDetailsByMakerName(String makerName){
+        return carRepository.getAllCarsDetails(makerName);
     }
 }

@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.stereotype.Component;
 
+import java.io.Serializable;
+
 @Component
 @Getter
 @Setter
@@ -13,7 +15,7 @@ import org.springframework.stereotype.Component;
 @Builder
 @Entity
 @Table(name = "Car")
-public class CarEntity {
+public class CarEntity implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

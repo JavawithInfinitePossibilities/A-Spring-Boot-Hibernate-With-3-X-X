@@ -4,6 +4,7 @@ import com.sid.tutorials.spring.boot3.hibernate.app.bean.Car;
 import com.sid.tutorials.spring.boot3.hibernate.app.bean.Person;
 import com.sid.tutorials.spring.boot3.hibernate.app.entity.CarEntity;
 import com.sid.tutorials.spring.boot3.hibernate.app.entity.PersonEntity;
+import com.sid.tutorials.spring.boot3.hibernate.app.entity.dto.CarDto;
 import com.sid.tutorials.spring.boot3.hibernate.app.mockdata.MockDataPrep;
 import com.sid.tutorials.spring.boot3.hibernate.app.services.CarServices;
 import com.sid.tutorials.spring.boot3.hibernate.app.services.PersonServices;
@@ -144,6 +145,16 @@ class Section11NativeSQLQueryTest {
         List<CarEntity> allCarDetails = carServices.getCarDetailsByMakeName("Ford");
         allCarDetails.stream().forEach(person -> {
             System.out.println(person);
+        });
+        System.out.println("Number of record returned : " + allCarDetails.size());
+    }
+
+    @Test
+    void getCarDetailsByMakerName() {
+        List<CarDto> allCarDetails = carServices.getAllCarDetailsByMakerName("Ford");
+        allCarDetails.stream().forEach(carDto -> {
+            System.out.println(carDto.getId() + " " + carDto.getMake() + " " + carDto.getColor() + " "
+                    + carDto.getModel() + " " + carDto.getPrice() + " " + carDto.getYear());
         });
         System.out.println("Number of record returned : " + allCarDetails.size());
     }

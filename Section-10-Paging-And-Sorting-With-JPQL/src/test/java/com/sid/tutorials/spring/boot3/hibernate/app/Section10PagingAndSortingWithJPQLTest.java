@@ -4,6 +4,7 @@ import com.sid.tutorials.spring.boot3.hibernate.app.bean.Car;
 import com.sid.tutorials.spring.boot3.hibernate.app.bean.Person;
 import com.sid.tutorials.spring.boot3.hibernate.app.entity.CarEntity;
 import com.sid.tutorials.spring.boot3.hibernate.app.entity.PersonEntity;
+import com.sid.tutorials.spring.boot3.hibernate.app.entity.dto.CarDto;
 import com.sid.tutorials.spring.boot3.hibernate.app.mockdata.MockDataPrep;
 import com.sid.tutorials.spring.boot3.hibernate.app.services.CarServices;
 import com.sid.tutorials.spring.boot3.hibernate.app.services.PersonServices;
@@ -12,6 +13,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 
 import java.io.IOException;
 import java.util.List;
@@ -141,6 +144,16 @@ class Section10PagingAndSortingWithJPQLTest {
     @Test
     void getCarDetails() {
         List<CarEntity> allCarDetails = carServices.getCarDetailsByMakeName("Ford");
+        allCarDetails.stream().forEach(person -> {
+            System.out.println(person);
+        });
+        System.out.println("Number of record returned : " + allCarDetails.size());
+    }
+
+    @Test
+    void getCarDetailsByNameOrderbyYear() {
+        PageRequest year = PageRequest.of(0, 10, Sort.by(Sort.Direction.ASC, "year","id"));
+        List<CarDto> allCarDetails = carServices.getCarDetailsByMakeNameSortByYear("Ford", year);
         allCarDetails.stream().forEach(person -> {
             System.out.println(person);
         });

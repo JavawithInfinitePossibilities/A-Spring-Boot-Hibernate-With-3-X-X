@@ -3,13 +3,15 @@ package com.sid.tutorials.spring.boot3.hibernate.app.bean;
 import lombok.*;
 import org.springframework.stereotype.Component;
 
+import java.io.Serializable;
+
 @Component
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Car  {
+public class Car implements Serializable {
 	private Integer id;
 	private String make;
 	private String model;
