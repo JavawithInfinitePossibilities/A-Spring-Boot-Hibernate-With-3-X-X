@@ -141,9 +141,12 @@ class Section08PagingAndSortingTest {
         carServices.createCarDetails(carEntity);
     }
 
+<<<<<<< HEAD
     /*
     This is for Section-08-Paging-And-Sorting
      */
+=======
+>>>>>>> 5fe71e96efec85a3f91a68e222b175faa79eaacc
     @Disabled
     @Test
     void getCarDetailsByPaging() {
