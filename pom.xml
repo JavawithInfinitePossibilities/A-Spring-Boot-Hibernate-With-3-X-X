@@ -26,6 +26,15 @@
         <module>Section-09-JPQL</module>
         <module>Section-10-Paging-And-Sorting-With-JPQL</module>
         <module>Section-11-Native-SQL-Query</module>
+        <module>Section-12-Inheritance-Mapping</module>
+        <module>Section-13-Componrnt-Mapping</module>
+        <module>Section-14-Relationships-in-Hibernate</module>
+        <module>Section-15-Many-to-Many-Association</module>
+        <module>Section-16-One-to-One-Mapping</module>
+        <module>Section-17-Hibernate-Caching-Mechanism</module>
+        <module>Section-18-Transection-Management</module>
+        <module>Section-19-Save-and-Retrieve-File</module>
+        <module>Section-20-Calling-Stored-procedures</module>
     </modules>
 
     <properties>

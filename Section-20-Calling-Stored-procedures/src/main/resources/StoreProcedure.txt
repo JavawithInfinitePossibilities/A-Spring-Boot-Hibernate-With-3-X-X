@@ -1,0 +1,37 @@
+USE `mydb`;
+DROP procedure IF EXISTS `GetAllProducts`;
+
+DELIMITER $$
+USE `mydb`$$
+CREATE PROCEDURE `GetAllProducts` ()
+BEGIN
+	Select * From product;
+END$$
+
+DELIMITER ;
+
+=========================================================
+USE `mydb`;
+DROP procedure IF EXISTS `GetAllProductsByPrice`;
+
+DELIMITER $$
+USE `mydb`$$
+CREATE PROCEDURE `GetAllProductsByPrice` (IN price_in decimal)
+BEGIN
+	Select * from product where product_price>price_in;
+END$$
+
+DELIMITER ;
+
+=========================================================
+USE `mydb`;
+DROP procedure IF EXISTS `GetAllProductCountByPrice`;
+
+DELIMITER $$
+USE `mydb`$$
+CREATE PROCEDURE `GetAllProductCountByPrice` (IN price_in decimal)
+BEGIN
+	Select count(*) from product where product_price>price_in;
+END$$
+
+DELIMITER ;
