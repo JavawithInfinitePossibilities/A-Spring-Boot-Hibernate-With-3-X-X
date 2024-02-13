@@ -35,6 +35,7 @@
         <module>Section-18-Transection-Management</module>
         <module>Section-19-Save-and-Retrieve-File</module>
         <module>Section-20-Calling-Stored-procedures</module>
+        <module>Section-21-End-To-End-Mini-Project</module>
     </modules>
 
     <properties>
