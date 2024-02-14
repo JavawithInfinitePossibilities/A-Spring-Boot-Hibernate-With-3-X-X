@@ -36,6 +36,8 @@
         <module>Section-19-Save-and-Retrieve-File</module>
         <module>Section-20-Calling-Stored-procedures</module>
         <module>Section-21-End-To-End-Mini-Project</module>
+        <module>Section-22-Working-With-MongoDB</module>
+        <module>Section-23-Composite-Primary-Keys</module>
     </modules>
 
     <properties>
