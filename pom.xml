@@ -38,6 +38,7 @@
         <module>Section-21-End-To-End-Mini-Project</module>
         <module>Section-22-Working-With-MongoDB</module>
         <module>Section-23-Composite-Primary-Keys</module>
+        <module>Section-24-Clinical-Data-Collection</module>
     </modules>
 
     <properties>

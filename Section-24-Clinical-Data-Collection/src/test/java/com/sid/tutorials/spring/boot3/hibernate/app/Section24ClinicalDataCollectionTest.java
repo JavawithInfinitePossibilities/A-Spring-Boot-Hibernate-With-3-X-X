@@ -3,9 +3,6 @@ package com.sid.tutorials.spring.boot3.hibernate.app;
 import com.sid.tutorials.spring.boot3.hibernate.app.bean.Car;
 import com.sid.tutorials.spring.boot3.hibernate.app.bean.Person;
 import com.sid.tutorials.spring.boot3.hibernate.app.mockdata.MockDataPrep;
-import com.sid.tutorials.spring.boot3.hibernate.app.model.componentMapping.CustomerId;
-import com.sid.tutorials.spring.boot3.hibernate.app.model.db.Customer;
-import com.sid.tutorials.spring.boot3.hibernate.app.repositories.ICustomerRepo;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,14 +15,10 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * @author kunmu On 14-02-2024
+ * @author kunmu On 20-02-2024
  */
-@SpringBootTest(classes = Section23CompositePrimaryKeys.class)
-class Section23CompositePrimaryKeysTest {
-
-
-    @Autowired
-    private ICustomerRepo iCustomerRepo;
+@SpringBootTest(classes = Section24ClinicalDataCollection.class)
+class Section24ClinicalDataCollectionTest {
 
     @Autowired
     @Qualifier("mockDataPrep")
@@ -51,12 +44,5 @@ class Section23CompositePrimaryKeysTest {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-    }
-
-    @Test
-    public void testSaveCustomer() {
-        CustomerId id = CustomerId.builder().id((int) (Math.random()*10)).email("abc@gmail.com").build();
-        Customer customer = Customer.builder().customerId(id).name("ZYX").build();
-        Customer saveCustomer = iCustomerRepo.save(customer);
     }
 }
